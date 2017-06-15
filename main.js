@@ -1,7 +1,30 @@
-let howTall = document.getElementById('getNumber').value;
-let whatChar = document.getElementById('getChar').value;
 let activateBtn = document.getElementById('growBtn');
+let numberField = document.getElementById('getNumber');
+let charField = document.getElementById('getChar');
 
-console.log("How tall and what char?", howTall, whatChar);
 
-//look at overly excited plus temp converter to review how those work
+let specs = {
+	height: 0,
+	char: " "
+};
+
+activateBtn.addEventListener("click", getInfo);
+numberField.addEventListener("keyup", function (event) {
+	if (event.key==="Enter") {
+		getInfo(specs);
+	}
+})
+charField.addEventListener("keyup", function (event) {
+	if (event.key==="Enter") {
+		getInfo(specs);
+	}
+})
+
+console.log("specs first", specs);
+
+
+function getInfo (specs) {
+	 specs.height = parseInt(document.getElementById('getNumber').value);
+	 specs.char = document.getElementById('getChar').value;
+	console.log("specs?", specs.char, specs.height);
+}
