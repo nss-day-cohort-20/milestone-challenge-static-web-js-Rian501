@@ -36,12 +36,17 @@ function getInfo (specs) {
 
 function growTree(specs) {
 	let emptyTree = '';
-	let spaces = '';
+	let spaces = 'm';
+	for (i=2; i<specs.height; i++) {
+		spaces += 'm';
+	}
+//I need the number of spaces to start out at specs.height-1, then to decrease by one each time through the loop until they are at 0 and the tree is full.
 	let doubleChar = specs.char + specs.char;
 	for (i=0; i<1; i++) {
-		console.log(emptyTree += specs.char);
+		console.log(emptyTree += spaces + specs.char);
 	};
 	for (i=0; i<specs.height; i++) {
-		console.log(emptyTree+= doubleChar);
+		spaces -= spaces;
+		console.log(emptyTree+= spaces + doubleChar);
 	}
 }
